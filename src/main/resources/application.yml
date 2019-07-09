@@ -1,0 +1,9 @@
+
+server:
+  port: 8848
+quartz:
+  weiXinUrl: https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=633a31f6-7f9c-4bc4-97a0-0ec1eefa589 #企业微信机器人Webhook地址
+  cronExpression: 0 0 18 * * ?
+  content: \u4E0B\u73ED\u6253\u5361\u63D0\u9192
+  weather: 101010200  #海淀
+  weatherExpression: 0 0 09 * * ?
