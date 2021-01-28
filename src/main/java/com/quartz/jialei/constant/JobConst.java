@@ -7,11 +7,9 @@ package com.quartz.jialei.constant;
  */
 public class JobConst {
 
-    public static final String URL = "url";
     public static final String TEXT = "text";
     public static final String MARKDOWN = "markdown";
     public static final String CONTENT = "content";
     public static final String MSGTYPE = "msgtype";
-    public static final String CITYNAME = "cityName";
 
 }

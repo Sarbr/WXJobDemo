@@ -3,7 +3,7 @@ package com.quartz.jialei.weather;
 import cn.hutool.http.HttpRequest;
 import cn.hutool.http.HttpResponse;
 import cn.hutool.http.HttpUtil;
-import com.alibaba.fastjson.JSONArray;
+import cn.hutool.json.JSONUtil;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
@@ -22,9 +22,13 @@ public class WeatherUtil {
         StringBuilder sb=new StringBuilder();
         StringBuilder sb2=new StringBuilder();
         try {
-            HttpResponse execute = HttpUtil.createPost("https://www.tianqiapi.com/api/?version=v1&&cityid=".concat(cityName)).contentType("application/json").timeout(HttpRequest.TIMEOUT_DEFAULT).execute();
+            HttpResponse execute = HttpUtil
+                    .createPost("https://www.tianqiapi.com/api/?version=v1&&cityid=".concat(cityName))
+                    .contentType("application/json")
+                    .timeout(HttpRequest.TIMEOUT_DEFAULT)
+                    .execute();
             String body = execute.body();
-            Weather weather = JSONArray.parseObject(body,Weather.class);
+            Weather weather = JSONUtil.toBean(body, Weather.class);
             Weather.DataBean dataBean = weather.getData().get(0);
             List<Weather.DataBean.IndexBean> index = dataBean.getIndex();
             for (int i = 0; i < index.size(); ++i) {

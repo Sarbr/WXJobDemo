@@ -12,8 +12,6 @@ import lombok.Data;
 @Data
 public class JobInfo {
     private String weiXinUrl;
-    private String cronExpression;
     private String content;
     private String weather;
-    private String weatherExpression;
 }
