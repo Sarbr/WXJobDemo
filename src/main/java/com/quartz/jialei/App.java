@@ -1,11 +1,8 @@
 package com.quartz.jialei;
 
-import com.quartz.jialei.model.JobInfo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
-import org.springframework.context.annotation.Bean;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
  * @author : sarbr
@@ -13,21 +10,10 @@ import org.springframework.context.annotation.Bean;
  * @date : 2019/7/2 9:25
  */
 @SpringBootApplication
-public class App extends SpringBootServletInitializer {
+@EnableScheduling
+public class App {
 
     public static void main(String[] args) {
         SpringApplication.run(App.class, args);
-    }
-
-    /**
-     * @author : sarbr
-     * @Description : 指定配置文件中的 quartz 属性
-     * @date : 2019/7/9 9:54
-     */
-    @Bean
-    @ConfigurationProperties(prefix = "quartz")
-    public JobInfo connectionSettings(){
-        return new JobInfo();
-
     }
 }

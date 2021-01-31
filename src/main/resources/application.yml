@@ -1,7 +1,13 @@
-
 server:
-  port: 8848
-quartz:
-  weiXinUrl: https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=e1672fa7-70ad-4021-b8ac-d98f7bd0c557 #企业微信机器人Webhook地址
-  content: \u4E0B\u73ED\u6253\u5361\u63D0\u9192
-  weather: 101010200  #海淀
+  port: 8888
+
+spring:
+  # thymeleaf 模板配置
+  thymeleaf:
+    check-template-location: true
+    suffix: .html
+    mode: HTML
+    encoding: UTF-8
+    prefix: classpath:templates/
+    cache: true
+open-url: http://127.0.0.1:${server.port}

@@ -1,34 +1,23 @@
 package com.quartz.jialei.config;
 
-import com.quartz.jialei.job.Job;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.scheduling.annotation.EnableScheduling;
-import org.springframework.scheduling.annotation.SchedulingConfigurer;
-import org.springframework.scheduling.config.ScheduledTaskRegistrar;
-import org.springframework.scheduling.support.CronTrigger;
-
-import java.util.List;
+import org.springframework.scheduling.TaskScheduler;
+import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
 
 @Configuration
-@EnableScheduling
 @Slf4j
-public class JobConfig implements SchedulingConfigurer {
+public class JobConfig {
 
-    private List<Job> runnableList;
-
-    @Autowired
-    public void setJobConfig(List<Job> runnableList) {
-        this.runnableList = runnableList;
+    @Bean
+    public TaskScheduler taskScheduler() {
+        ThreadPoolTaskScheduler taskScheduler = new ThreadPoolTaskScheduler();
+        // 定时任务执行线程池核心线程数
+        taskScheduler.setPoolSize(4);
+        taskScheduler.setRemoveOnCancelPolicy(true);
+        taskScheduler.setThreadNamePrefix("TaskSchedulerThreadPool-");
+        return taskScheduler;
     }
 
-    @Override
-    public void configureTasks(ScheduledTaskRegistrar registrar) {
-        runnableList.forEach(runnable -> {
-            registrar.addTriggerTask(runnable,
-                    triggerContext -> new CronTrigger(runnable.cron()).nextExecutionTime(triggerContext));
-        });
-        log.info("初始化定时任务完成,共[{}]个定时任务!",runnableList.size());
-    }
 }

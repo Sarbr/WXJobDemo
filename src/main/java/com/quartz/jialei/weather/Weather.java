@@ -1,117 +1,233 @@
 package com.quartz.jialei.weather;
 
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.List;
 
 @NoArgsConstructor
 @Data
+@Setter
+@Getter
 public class Weather {
 
     /**
-     * cityid : 101010200
-     * update_time : 2019-07-04 07:30:00
-     * city : 海淀
-     * cityEn : haidian
-     * country : 中国
-     * countryEn : China
-     * data : [{"day":"4日（今天）","date":"2019-07-04","week":"星期四","wea":"晴转多云","wea_img":"yun","air":0,"humidity":52,"air_level":"优","air_tips":"空气很好，可以外出活动，呼吸新鲜空气，拥抱大自然！","alarm":{"alarm_type":"","alarm_level":"","alarm_content":""},"tem1":"39℃","tem2":"25℃","tem":"29℃","win":["南风","南风"],"win_speed":"3-4级转<3级","hours":[{"day":"04日08时","wea":"晴","tem":"29℃","win":"南风","win_speed":"<3级"},{"day":"04日11时","wea":"晴","tem":"35℃","win":"南风","win_speed":"<3级"},{"day":"04日14时","wea":"晴","tem":"38℃","win":"南风","win_speed":"3-4级"},{"day":"04日17时","wea":"晴","tem":"37℃","win":"南风","win_speed":"3-4级"},{"day":"04日20时","wea":"晴","tem":"32℃","win":"南风","win_speed":"<3级"},{"day":"04日23时","wea":"多云","tem":"29℃","win":"南风","win_speed":"<3级"},{"day":"05日02时","wea":"多云","tem":"26℃","win":"南风","win_speed":"<3级"},{"day":"05日05时","wea":"多云","tem":"25℃","win":"南风","win_speed":"<3级"}],"index":[{"title":"紫外线指数","level":"强","desc":"涂擦SPF大于15、PA+防晒护肤品。"},{"title":"<\/em><em><\/em><em><\/em><em>","level":null,"desc":"天热风大，可选择低强度运动。"},{"title":"健臻·血糖指数","level":"易波动","desc":"气温高，血糖易波动，注意防暑降温。"},{"title":"穿衣指数","level":"炎热","desc":"建议穿短衫、短裤等清凉夏季服装。"},{"title":"洗车指数","level":"不宜","desc":"有雨，雨水和泥水会弄脏爱车。"},{"title":"空气污染扩散指数","level":"良","desc":"气象条件有利于空气污染物扩散。"}]},{"day":"5日（明天）","date":"2019-07-05","week":"星期五","wea":"雷阵雨","wea_img":"lei","tem1":"34℃","tem2":"22℃","tem":"27℃","win":["东风","北风"],"win_speed":"<3级转3-4级","hours":[{"day":"05日08时","wea":"多云","tem":"27℃","win":"南风","win_speed":"<3级"},{"day":"05日11时","wea":"雷阵雨","tem":"30℃","win":"东风","win_speed":"<3级"},{"day":"05日14时","wea":"雷阵雨","tem":"32℃","win":"东风","win_speed":"<3级"},{"day":"05日17时","wea":"雷阵雨","tem":"31℃","win":"东风","win_speed":"<3级"},{"day":"05日20时","wea":"雷阵雨","tem":"27℃","win":"东风","win_speed":"<3级"},{"day":"05日23时","wea":"阴","tem":"25℃","win":"北风","win_speed":"<3级"},{"day":"06日02时","wea":"雷阵雨","tem":"24℃","win":"北风","win_speed":"<3级"},{"day":"06日05时","wea":"雷阵雨","tem":"23℃","win":"北风","win_speed":"<3级"}],"index":[{"title":"紫外线指数","level":"最弱","desc":"辐射弱，涂擦SPF8-12防晒护肤品。"},{"title":"<\/em><em><\/em><em><\/em><em>","level":null,"desc":"天气闷热，坚持室内低强度运动。"},{"title":"健臻·血糖指数","level":"易波动","desc":"气温多变，血糖易波动，请注意监测。"},{"title":"穿衣指数","level":"炎热","desc":"建议穿短衫、短裤等清凉夏季服装。"},{"title":"洗车指数","level":"较适宜","desc":"无雨且风力较小，易保持清洁度。"},{"title":"空气污染扩散指数","level":"良","desc":"气象条件有利于空气污染物扩散。"}]},{"day":"6日（后天）","date":"2019-07-06","week":"星期六","wea":"雷阵雨","wea_img":"lei","tem1":"31℃","tem2":"20℃","tem":"24℃","win":["北风","北风"],"win_speed":"<3级","hours":[{"day":"06日08时","wea":"雷阵雨","tem":"24℃","win":"北风","win_speed":"3-4级"},{"day":"06日11时","wea":"雷阵雨","tem":"28℃","win":"北风","win_speed":"<3级"},{"day":"06日14时","wea":"多云","tem":"30℃","win":"北风","win_speed":"<3级"},{"day":"06日17时","wea":"多云","tem":"28℃","win":"北风","win_speed":"<3级"},{"day":"06日20时","wea":"晴","tem":"26℃","win":"北风","win_speed":"<3级"},{"day":"06日23时","wea":"晴","tem":"24℃","win":"北风","win_speed":"<3级"},{"day":"07日02时","wea":"晴","tem":"24℃","win":"北风","win_speed":"<3级"},{"day":"07日05时","wea":"晴","tem":"22℃","win":"北风","win_speed":"<3级"}],"index":[{"title":"紫外线指数","level":"最弱","desc":"辐射弱，涂擦SPF8-12防晒护肤品。"},{"title":"<\/em><em><\/em><em><\/em><em>","level":null,"desc":"夏天肉难藏，雨天坚持室内运动吧。"},{"title":"健臻·血糖指数","level":"较易波动","desc":"血糖较易波动，注意监测。"},{"title":"穿衣指数","level":"热","desc":"适合穿T恤、短薄外套等夏季服装。"},{"title":"洗车指数","level":"不宜","desc":"有雨，雨水和泥水会弄脏爱车。"},{"title":"空气污染扩散指数","level":"良","desc":"气象条件有利于空气污染物扩散。"}]},{"day":"7日（周日）","date":"2019-07-07","week":"星期日","wea":"阴","wea_img":"yin","tem1":"30℃","tem2":"20℃","tem":"24℃","win":["北风","西北风"],"win_speed":"<3级","hours":[{"day":"07日08时","wea":"雷阵雨","tem":"24℃","win":"北风","win_speed":"<3级"},{"day":"07日14时","wea":"阴","tem":"26℃","win":"北风","win_speed":"<3级"},{"day":"07日20时","wea":"阴","tem":"26℃","win":"北风","win_speed":"<3级"},{"day":"08日02时","wea":"阴","tem":"22℃","win":"西北风","win_speed":"<3级"}],"index":[{"title":"紫外线指数","level":"弱","desc":"辐射较弱，涂擦SPF12-15、PA+护肤品。"},{"title":"<\/em><em><\/em><em><\/em><em>","level":null,"desc":"天气有点热，运动多补水。"},{"title":"健臻·血糖指数","level":"较易波动","desc":"血糖较易波动，注意监测。"},{"title":"穿衣指数","level":"热","desc":"适合穿T恤、短薄外套等夏季服装。"},{"title":"洗车指数","level":"不宜","desc":"有雨，雨水和泥水会弄脏爱车。"},{"title":"空气污染扩散指数","level":"较差","desc":"气象条件较不利于空气污染物扩散。。"}]},{"day":"8日（周一）","date":"2019-07-08","week":"星期一","wea":"多云","wea_img":"yun","tem1":"31℃","tem2":"21℃","tem":"23℃","win":["北风","北风"],"win_speed":"<3级","hours":[{"day":"08日08时","wea":"多云","tem":"23℃","win":"西北风","win_speed":"<3级"},{"day":"08日14时","wea":"多云","tem":"28℃","win":"北风","win_speed":"<3级"},{"day":"08日20时","wea":"多云","tem":"27℃","win":"北风","win_speed":"<3级"},{"day":"09日02时","wea":"晴","tem":"23℃","win":"北风","win_speed":"<3级"}],"index":[{"title":"紫外线指数","level":"中等","desc":"涂擦SPF大于15、PA+防晒护肤品。"},{"title":"<\/em><em><\/em><em><\/em><em>","level":null,"desc":"天气有点热，运动多补水。"},{"title":"健臻·血糖指数","level":"易波动","desc":"血糖易波动，注意监测。"},{"title":"穿衣指数","level":"热","desc":"适合穿T恤、短薄外套等夏季服装。"},{"title":"洗车指数","level":"较不宜","desc":"路面有积水，车子易被溅上泥水。"},{"title":"空气污染扩散指数","level":"中","desc":"易感人群应适当减少室外活动。"}]},{"day":"9日（周二）","date":"2019-07-09","week":"星期二","wea":"多云","wea_img":"yun","tem1":"32℃","tem2":"21℃","tem":"24℃","win":["北风","东南风"],"win_speed":"<3级","hours":[{"day":"09日08时","wea":"多云","tem":"24℃","win":"北风","win_speed":"<3级"},{"day":"09日14时","wea":"多云","tem":"29℃","win":"北风","win_speed":"<3级"},{"day":"09日20时","wea":"多云","tem":"27℃","win":"北风","win_speed":"<3级"},{"day":"10日02时","wea":"晴","tem":"23℃","win":"东南风","win_speed":"<3级"}],"index":[{"title":"紫外线指数","level":"中等","desc":"涂擦SPF大于15、PA+防晒护肤品。"},{"title":"<\/em><em><\/em><em><\/em><em>","level":null,"desc":"天气有点热，运动多补水。"},{"title":"健臻·血糖指数","level":"易波动","desc":"血糖易波动，注意监测。"},{"title":"穿衣指数","level":"炎热","desc":"建议穿短衫、短裤等清凉夏季服装。"},{"title":"洗车指数","level":"适宜","desc":"天气较好，适合擦洗汽车。"},{"title":"空气污染扩散指数","level":"中","desc":"易感人群应适当减少室外活动。"}]},{"day":"10日（周三）","date":"2019-07-10","week":"星期三","wea":"多云","wea_img":"yun","tem1":"32℃","tem2":"22℃","tem":"23℃","win":["南风","北风"],"win_speed":"<3级","hours":[{"day":"10日08时","wea":"多云","tem":"23℃","win":"东南风","win_speed":"<3级"},{"day":"10日14时","wea":"多云","tem":"29℃","win":"南风","win_speed":"<3级"},{"day":"10日20时","wea":"多云","tem":"28℃","win":"南风","win_speed":"<3级"},{"day":"11日02时","wea":"多云","tem":"24℃","win":"北风","win_speed":"<3级"}],"index":[{"title":"紫外线指数","level":"中等","desc":"涂擦SPF大于15、PA+防晒护肤品。"},{"title":"<\/em><em><\/em><em><\/em><em>","level":null,"desc":"天气有点热，运动多补水。"},{"title":"健臻·血糖指数","level":"易波动","desc":"血糖易波动，注意监测。"},{"title":"穿衣指数","level":"炎热","desc":"建议穿短衫、短裤等清凉夏季服装。"},{"title":"洗车指数","level":"适宜","desc":"天气较好，适合擦洗汽车。"},{"title":"空气污染扩散指数","level":"中","desc":"易感人群应适当减少室外活动。"}]}]
+     * status : 0
+     * msg : ok
+     * result : {"city":"西青区","cityid":2919,"citycode":"101030500","date":"2021-01-29","week":"星期五","weather":"晴","temp":"-2","temphigh":"3","templow":"-6","img":"0","humidity":"33","pressure":"1024","windspeed":"3.7","winddirect":"南风","windpower":"2级","updatetime":"2021-01-29 10:20:00","index":[{"iname":"空调指数","ivalue":"开启制暖空调","detail":"您将感到有些冷，可以适当开启制暖空调调节室内温度，以免着凉感冒。"},{"iname":"运动指数","ivalue":"较不宜","detail":"天气较好，但考虑天气寒冷，推荐您进行室内运动，户外运动时请注意保暖并做好准备活动。"},{"iname":"紫外线指数","ivalue":"弱","detail":"紫外线强度较弱，建议出门前涂擦SPF在12-15之间、PA+的防晒护肤品。"},{"iname":"感冒指数","ivalue":"较易发","detail":"昼夜温差较大，较易发生感冒，请适当增减衣服。体质较弱的朋友请注意防护。"},{"iname":"洗车指数","ivalue":"较适宜","detail":"较适宜洗车，未来一天无雨，风力较小，擦洗一新的汽车至少能保持一天。"},{"iname":"空气污染扩散指数","ivalue":"较差","detail":"气象条件较不利于空气污染物稀释、扩散和清除，请适当减少室外活动时间。"},{"iname":"穿衣指数","ivalue":"冷","detail":"天气冷，建议着棉服、羽绒服、皮夹克加羊毛衫等冬季服装。年老体弱者宜着厚棉衣、冬大衣或厚羽绒服。"}],"aqi":{"so2":"15","so224":"7","no2":"61","no224":"40","co":"0.970","co24":"0.510","o3":"15","o38":"16","o324":"21","pm10":"72","pm1024":"47","pm2_5":"25","pm2_524":"13","iso2":"6","ino2":"31","ico":"10","io3":"5","io38":"9","ipm10":"62","ipm2_5":"36","aqi":"62","primarypollutant":"PM10","quality":"良","timepoint":"2021-01-29 09:00:00","aqiinfo":{"level":"二级","color":"#FFFF00","affect":"空气质量可接受，但某些污染物可能对极少数异常敏感人群健康有较弱影响","measure":"极少数异常敏感人群应减少户外活动"}},"daily":[{"date":"2021-01-29","week":"星期五","sunrise":"07:23","sunset":"17:28","night":{"weather":"晴","templow":"-6","img":"0","winddirect":"北风","windpower":"微风"},"day":{"weather":"晴","temphigh":"3","img":"0","winddirect":"东南风","windpower":"微风"}},{"date":"2021-01-30","week":"星期六","sunrise":"07:22","sunset":"17:30","night":{"weather":"晴","templow":"-6","img":"0","winddirect":"东风","windpower":"3-5级"},"day":{"weather":"晴","temphigh":"7","img":"0","winddirect":"东南风","windpower":"微风"}},{"date":"2021-01-31","week":"星期日","sunrise":"07:21","sunset":"17:31","night":{"weather":"多云","templow":"-4","img":"1","winddirect":"北风","windpower":"4-5级"},"day":{"weather":"多云","temphigh":"4","img":"1","winddirect":"西南风","windpower":"微风"}},{"date":"2021-02-01","week":"星期一","sunrise":"07:20","sunset":"17:32","night":{"weather":"晴","templow":"-8","img":"0","winddirect":"北风","windpower":"微风"},"day":{"weather":"晴","temphigh":"3","img":"0","winddirect":"北风","windpower":"4-5级"}},{"date":"2021-02-02","week":"星期二","sunrise":"07:19","sunset":"17:33","night":{"weather":"多云","templow":"-7","img":"1","winddirect":"西南风","windpower":"3-5级"},"day":{"weather":"晴","temphigh":"4","img":"0","winddirect":"西南风","windpower":"3-5级"}},{"date":"2021-02-03","week":"星期三","sunrise":"07:18","sunset":"17:34","night":{"weather":"晴","templow":"-8","img":"0","winddirect":"东风","windpower":"微风"},"day":{"weather":"多云","temphigh":"3","img":"1","winddirect":"北风","windpower":"3-5级"}},{"date":"2021-02-04","week":"星期四","sunrise":"07:17","sunset":"17:35","night":{"weather":"晴","templow":"-7","img":"0","winddirect":"西北风","windpower":"微风"},"day":{"weather":"晴","temphigh":"5","img":"0","winddirect":"西北风","windpower":"微风"}}],"hourly":[{"time":"10:00","weather":"晴","temp":"-5","img":"0"},{"time":"11:00","weather":"晴","temp":"-4","img":"0"},{"time":"12:00","weather":"晴","temp":"-1","img":"0"},{"time":"13:00","weather":"晴","temp":"1","img":"0"},{"time":"14:00","weather":"晴","temp":"2","img":"0"},{"time":"15:00","weather":"晴","temp":"3","img":"0"},{"time":"16:00","weather":"晴","temp":"3","img":"0"},{"time":"17:00","weather":"晴","temp":"3","img":"0"},{"time":"18:00","weather":"晴","temp":"1","img":"0"},{"time":"19:00","weather":"晴","temp":"0","img":"0"},{"time":"20:00","weather":"晴","temp":"-2","img":"0"},{"time":"21:00","weather":"晴","temp":"-2","img":"0"},{"time":"22:00","weather":"晴","temp":"-3","img":"0"},{"time":"23:00","weather":"晴","temp":"-3","img":"0"},{"time":"0:00","weather":"晴","temp":"-3","img":"0"},{"time":"1:00","weather":"晴","temp":"-4","img":"0"},{"time":"2:00","weather":"晴","temp":"-5","img":"0"},{"time":"3:00","weather":"晴","temp":"-5","img":"0"},{"time":"4:00","weather":"晴","temp":"-5","img":"0"},{"time":"5:00","weather":"晴","temp":"-6","img":"0"},{"time":"6:00","weather":"晴","temp":"-4","img":"0"},{"time":"7:00","weather":"晴","temp":"-4","img":"0"},{"time":"8:00","weather":"晴","temp":"-4","img":"0"},{"time":"9:00","weather":"晴","temp":"-2","img":"0"}]}
      */
 
-    private String cityid;
-    private String update_time;
-    private String city;
-    private String cityEn;
-    private String country;
-    private String countryEn;
-    private List<DataBean> data;
+    private int status;
+    private String msg;
+    private ResultBean result;
+
     @NoArgsConstructor
     @Data
-    public static class DataBean {
+    public static class ResultBean {
         /**
-         * day : 4日（今天）
-         * date : 2019-07-04
-         * week : 星期四
-         * wea : 晴转多云
-         * wea_img : yun
-         * air : 0
-         * humidity : 52
-         * air_level : 优
-         * air_tips : 空气很好，可以外出活动，呼吸新鲜空气，拥抱大自然！
-         * alarm : {"alarm_type":"","alarm_level":"","alarm_content":""}
-         * tem1 : 39℃
-         * tem2 : 25℃
-         * tem : 29℃
-         * win : ["南风","南风"]
-         * win_speed : 3-4级转<3级
-         * hours : [{"day":"04日08时","wea":"晴","tem":"29℃","win":"南风","win_speed":"<3级"},{"day":"04日11时","wea":"晴","tem":"35℃","win":"南风","win_speed":"<3级"},{"day":"04日14时","wea":"晴","tem":"38℃","win":"南风","win_speed":"3-4级"},{"day":"04日17时","wea":"晴","tem":"37℃","win":"南风","win_speed":"3-4级"},{"day":"04日20时","wea":"晴","tem":"32℃","win":"南风","win_speed":"<3级"},{"day":"04日23时","wea":"多云","tem":"29℃","win":"南风","win_speed":"<3级"},{"day":"05日02时","wea":"多云","tem":"26℃","win":"南风","win_speed":"<3级"},{"day":"05日05时","wea":"多云","tem":"25℃","win":"南风","win_speed":"<3级"}]
-         * index : [{"title":"紫外线指数","level":"强","desc":"涂擦SPF大于15、PA+防晒护肤品。"},{"title":"<\/em><em><\/em><em><\/em><em>","level":null,"desc":"天热风大，可选择低强度运动。"},{"title":"健臻·血糖指数","level":"易波动","desc":"气温高，血糖易波动，注意防暑降温。"},{"title":"穿衣指数","level":"炎热","desc":"建议穿短衫、短裤等清凉夏季服装。"},{"title":"洗车指数","level":"不宜","desc":"有雨，雨水和泥水会弄脏爱车。"},{"title":"空气污染扩散指数","level":"良","desc":"气象条件有利于空气污染物扩散。"}]
+         * city : 西青区
+         * cityid : 2919
+         * citycode : 101030500
+         * date : 2021-01-29
+         * week : 星期五
+         * weather : 晴
+         * temp : -2
+         * temphigh : 3
+         * templow : -6
+         * img : 0
+         * humidity : 33
+         * pressure : 1024
+         * windspeed : 3.7
+         * winddirect : 南风
+         * windpower : 2级
+         * updatetime : 2021-01-29 10:20:00
+         * index : [{"iname":"空调指数","ivalue":"开启制暖空调","detail":"您将感到有些冷，可以适当开启制暖空调调节室内温度，以免着凉感冒。"},{"iname":"运动指数","ivalue":"较不宜","detail":"天气较好，但考虑天气寒冷，推荐您进行室内运动，户外运动时请注意保暖并做好准备活动。"},{"iname":"紫外线指数","ivalue":"弱","detail":"紫外线强度较弱，建议出门前涂擦SPF在12-15之间、PA+的防晒护肤品。"},{"iname":"感冒指数","ivalue":"较易发","detail":"昼夜温差较大，较易发生感冒，请适当增减衣服。体质较弱的朋友请注意防护。"},{"iname":"洗车指数","ivalue":"较适宜","detail":"较适宜洗车，未来一天无雨，风力较小，擦洗一新的汽车至少能保持一天。"},{"iname":"空气污染扩散指数","ivalue":"较差","detail":"气象条件较不利于空气污染物稀释、扩散和清除，请适当减少室外活动时间。"},{"iname":"穿衣指数","ivalue":"冷","detail":"天气冷，建议着棉服、羽绒服、皮夹克加羊毛衫等冬季服装。年老体弱者宜着厚棉衣、冬大衣或厚羽绒服。"}]
+         * aqi : {"so2":"15","so224":"7","no2":"61","no224":"40","co":"0.970","co24":"0.510","o3":"15","o38":"16","o324":"21","pm10":"72","pm1024":"47","pm2_5":"25","pm2_524":"13","iso2":"6","ino2":"31","ico":"10","io3":"5","io38":"9","ipm10":"62","ipm2_5":"36","aqi":"62","primarypollutant":"PM10","quality":"良","timepoint":"2021-01-29 09:00:00","aqiinfo":{"level":"二级","color":"#FFFF00","affect":"空气质量可接受，但某些污染物可能对极少数异常敏感人群健康有较弱影响","measure":"极少数异常敏感人群应减少户外活动"}}
+         * daily : [{"date":"2021-01-29","week":"星期五","sunrise":"07:23","sunset":"17:28","night":{"weather":"晴","templow":"-6","img":"0","winddirect":"北风","windpower":"微风"},"day":{"weather":"晴","temphigh":"3","img":"0","winddirect":"东南风","windpower":"微风"}},{"date":"2021-01-30","week":"星期六","sunrise":"07:22","sunset":"17:30","night":{"weather":"晴","templow":"-6","img":"0","winddirect":"东风","windpower":"3-5级"},"day":{"weather":"晴","temphigh":"7","img":"0","winddirect":"东南风","windpower":"微风"}},{"date":"2021-01-31","week":"星期日","sunrise":"07:21","sunset":"17:31","night":{"weather":"多云","templow":"-4","img":"1","winddirect":"北风","windpower":"4-5级"},"day":{"weather":"多云","temphigh":"4","img":"1","winddirect":"西南风","windpower":"微风"}},{"date":"2021-02-01","week":"星期一","sunrise":"07:20","sunset":"17:32","night":{"weather":"晴","templow":"-8","img":"0","winddirect":"北风","windpower":"微风"},"day":{"weather":"晴","temphigh":"3","img":"0","winddirect":"北风","windpower":"4-5级"}},{"date":"2021-02-02","week":"星期二","sunrise":"07:19","sunset":"17:33","night":{"weather":"多云","templow":"-7","img":"1","winddirect":"西南风","windpower":"3-5级"},"day":{"weather":"晴","temphigh":"4","img":"0","winddirect":"西南风","windpower":"3-5级"}},{"date":"2021-02-03","week":"星期三","sunrise":"07:18","sunset":"17:34","night":{"weather":"晴","templow":"-8","img":"0","winddirect":"东风","windpower":"微风"},"day":{"weather":"多云","temphigh":"3","img":"1","winddirect":"北风","windpower":"3-5级"}},{"date":"2021-02-04","week":"星期四","sunrise":"07:17","sunset":"17:35","night":{"weather":"晴","templow":"-7","img":"0","winddirect":"西北风","windpower":"微风"},"day":{"weather":"晴","temphigh":"5","img":"0","winddirect":"西北风","windpower":"微风"}}]
+         * hourly : [{"time":"10:00","weather":"晴","temp":"-5","img":"0"},{"time":"11:00","weather":"晴","temp":"-4","img":"0"},{"time":"12:00","weather":"晴","temp":"-1","img":"0"},{"time":"13:00","weather":"晴","temp":"1","img":"0"},{"time":"14:00","weather":"晴","temp":"2","img":"0"},{"time":"15:00","weather":"晴","temp":"3","img":"0"},{"time":"16:00","weather":"晴","temp":"3","img":"0"},{"time":"17:00","weather":"晴","temp":"3","img":"0"},{"time":"18:00","weather":"晴","temp":"1","img":"0"},{"time":"19:00","weather":"晴","temp":"0","img":"0"},{"time":"20:00","weather":"晴","temp":"-2","img":"0"},{"time":"21:00","weather":"晴","temp":"-2","img":"0"},{"time":"22:00","weather":"晴","temp":"-3","img":"0"},{"time":"23:00","weather":"晴","temp":"-3","img":"0"},{"time":"0:00","weather":"晴","temp":"-3","img":"0"},{"time":"1:00","weather":"晴","temp":"-4","img":"0"},{"time":"2:00","weather":"晴","temp":"-5","img":"0"},{"time":"3:00","weather":"晴","temp":"-5","img":"0"},{"time":"4:00","weather":"晴","temp":"-5","img":"0"},{"time":"5:00","weather":"晴","temp":"-6","img":"0"},{"time":"6:00","weather":"晴","temp":"-4","img":"0"},{"time":"7:00","weather":"晴","temp":"-4","img":"0"},{"time":"8:00","weather":"晴","temp":"-4","img":"0"},{"time":"9:00","weather":"晴","temp":"-2","img":"0"}]
          */
 
-        private String day;
+        private String city;
+        private int cityid;
+        private String citycode;
         private String date;
         private String week;
-        private String wea;
-        private String wea_img;
-        private int air;
-        private int humidity;
-        private String air_level;
-        private String air_tips;
-        private AlarmBean alarm;
-        private String tem1;
-        private String tem2;
-        private String tem;
-        private String win_speed;
-        private List<String> win;
-        private List<HoursBean> hours;
+        private String weather;
+        private String temp;
+        private String temphigh;
+        private String templow;
+        private String img;
+        private String humidity;
+        private String pressure;
+        private String windspeed;
+        private String winddirect;
+        private String windpower;
+        private String updatetime;
+        private AqiBean aqi;
         private List<IndexBean> index;
+        private List<DailyBean> daily;
+        private List<HourlyBean> hourly;
 
         @NoArgsConstructor
         @Data
-        public static class AlarmBean {
+        public static class AqiBean {
             /**
-             * alarm_type :
-             * alarm_level :
-             * alarm_content :
+             * so2 : 15
+             * so224 : 7
+             * no2 : 61
+             * no224 : 40
+             * co : 0.970
+             * co24 : 0.510
+             * o3 : 15
+             * o38 : 16
+             * o324 : 21
+             * pm10 : 72
+             * pm1024 : 47
+             * pm2_5 : 25
+             * pm2_524 : 13
+             * iso2 : 6
+             * ino2 : 31
+             * ico : 10
+             * io3 : 5
+             * io38 : 9
+             * ipm10 : 62
+             * ipm2_5 : 36
+             * aqi : 62
+             * primarypollutant : PM10
+             * quality : 良
+             * timepoint : 2021-01-29 09:00:00
+             * aqiinfo : {"level":"二级","color":"#FFFF00","affect":"空气质量可接受，但某些污染物可能对极少数异常敏感人群健康有较弱影响","measure":"极少数异常敏感人群应减少户外活动"}
              */
 
-            private String alarm_type;
-            private String alarm_level;
-            private String alarm_content;
-        }
+            private String so2;
+            private String so224;
+            private String no2;
+            private String no224;
+            private String co;
+            private String co24;
+            private String o3;
+            private String o38;
+            private String o324;
+            private String pm10;
+            private String pm1024;
+            private String pm2_5;
+            private String pm2_524;
+            private String iso2;
+            private String ino2;
+            private String ico;
+            private String io3;
+            private String io38;
+            private String ipm10;
+            private String ipm2_5;
+            private String aqi;
+            private String primarypollutant;
+            private String quality;
+            private String timepoint;
+            private AqiinfoBean aqiinfo;
 
-        @NoArgsConstructor
-        @Data
-        public static class HoursBean {
-            /**
-             * day : 04日08时
-             * wea : 晴
-             * tem : 29℃
-             * win : 南风
-             * win_speed : <3级
-             */
+            @NoArgsConstructor
+            @Data
+            public static class AqiinfoBean {
+                /**
+                 * level : 二级
+                 * color : #FFFF00
+                 * affect : 空气质量可接受，但某些污染物可能对极少数异常敏感人群健康有较弱影响
+                 * measure : 极少数异常敏感人群应减少户外活动
+                 */
 
-            private String day;
-            private String wea;
-            private String tem;
-            private String win;
-            private String win_speed;
+                private String level;
+                private String color;
+                private String affect;
+                private String measure;
+            }
         }
 
         @NoArgsConstructor
         @Data
         public static class IndexBean {
             /**
-             * title : 紫外线指数
-             * level : 强
-             * desc : 涂擦SPF大于15、PA+防晒护肤品。
+             * iname : 空调指数
+             * ivalue : 开启制暖空调
+             * detail : 您将感到有些冷，可以适当开启制暖空调调节室内温度，以免着凉感冒。
              */
 
-            private String title;
-            private String level;
-            private String desc;
+            private String iname;
+            private String ivalue;
+            private String detail;
+        }
+
+        @NoArgsConstructor
+        @Data
+        public static class DailyBean {
+            /**
+             * date : 2021-01-29
+             * week : 星期五
+             * sunrise : 07:23
+             * sunset : 17:28
+             * night : {"weather":"晴","templow":"-6","img":"0","winddirect":"北风","windpower":"微风"}
+             * day : {"weather":"晴","temphigh":"3","img":"0","winddirect":"东南风","windpower":"微风"}
+             */
+
+            private String date;
+            private String week;
+            private String sunrise;
+            private String sunset;
+            private NightBean night;
+            private DayBean day;
+
+            @NoArgsConstructor
+            @Data
+            public static class NightBean {
+                /**
+                 * weather : 晴
+                 * templow : -6
+                 * img : 0
+                 * winddirect : 北风
+                 * windpower : 微风
+                 */
+
+                private String weather;
+                private String templow;
+                private String img;
+                private String winddirect;
+                private String windpower;
+            }
+
+            @NoArgsConstructor
+            @Data
+            public static class DayBean {
+                /**
+                 * weather : 晴
+                 * temphigh : 3
+                 * img : 0
+                 * winddirect : 东南风
+                 * windpower : 微风
+                 */
+
+                private String weather;
+                private String temphigh;
+                private String img;
+                private String winddirect;
+                private String windpower;
+            }
+        }
+
+        @NoArgsConstructor
+        @Data
+        public static class HourlyBean {
+            /**
+             * time : 10:00
+             * weather : 晴
+             * temp : -5
+             * img : 0
+             */
+
+            private String time;
+            private String weather;
+            private String temp;
+            private String img;
         }
     }
-
 }

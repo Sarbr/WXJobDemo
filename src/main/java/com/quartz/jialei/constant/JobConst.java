@@ -12,4 +12,10 @@ public class JobConst {
     public static final String CONTENT = "content";
     public static final String MSGTYPE = "msgtype";
 
+    public static final String CITY_CODE = "cityCode";
+    public static final String APP_CODE = "appCode";
+    public static final String WEI_XIN_URL = "weiXinUrl";
+    public static final String REMIND_JOB = "remindJob";
+    public static final String WEATHER_JOB = "weatherJob";
+
 }
