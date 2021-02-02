@@ -6,10 +6,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import java.awt.*;
 import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
 
 import static com.quartz.jialei.constant.JobConst.*;
 import static com.quartz.jialei.service.CacheService.createInfo;
@@ -30,23 +27,17 @@ public class JobRunner implements CommandLineRunner {
         CacheService.setCache(REMIND_JOB, createInfo(REMIND_JOB, "0 0 18 * * ?", "提醒信息job"));
         CacheService.setCache(WEATHER_JOB, createInfo(WEATHER_JOB, "0 0 9 * * ?", "早上天气job"));
 
-
-
-        if(Desktop.isDesktopSupported()){
-            Desktop desktop = Desktop.getDesktop();
+        // 打开默认浏览器
+        Runtime rt = Runtime.getRuntime();
+        try {
+            String runCmd = "rundll32 url.dll,FileProtocolHandler " + openUrl ;
+            rt.exec(runCmd);
+        } catch (IOException e) {
             try {
-                desktop.browse(new URI(openUrl));
-            } catch (IOException | URISyntaxException e) {
-                // TODO Auto-generated catch block
-                e.printStackTrace();
-            }
-        }else{
-            try {
-                String runCmd = "open -a Microsoft Edge " +openUrl ;
-                Runtime rt = Runtime.getRuntime();
+                String runCmd = "cmd /c start " + openUrl ;
                 rt.exec(runCmd);
-            } catch (IOException e) {
-                e.printStackTrace();
+            } catch (IOException ex) {
+                log.error("浏览器默认打开失败!{}",openUrl);
             }
         }
     }

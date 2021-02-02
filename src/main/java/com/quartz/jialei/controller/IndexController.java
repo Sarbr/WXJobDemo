@@ -55,7 +55,6 @@ public class IndexController {
             CacheService.updateCache(jobInfo.getKey(), jobInfo);
             if(REMIND_JOB.equals(jobInfo.getKey())||WEATHER_JOB.equals(jobInfo.getKey())){
                 Runnable job = runnableMap.get(jobInfo.getKey());
-                cronTaskRegistrar.removeCronTask(job);
                 cronTaskRegistrar.addCronTask(job,jobInfo.getValue());
             }
         });
