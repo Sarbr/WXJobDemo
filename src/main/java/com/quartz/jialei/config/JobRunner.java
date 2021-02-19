@@ -39,9 +39,9 @@ public class JobRunner implements CommandLineRunner {
     @Override
     public void run(String... args) {
         CacheService.setCache(CITY_CODE, createInfo(CITY_CODE, "101030500", "城市区域代码"));
-        CacheService.setCache(APP_CODE, createInfo(APP_CODE, "code", appCode));
+        CacheService.setCache(APP_CODE, createInfo(APP_CODE, appCode, "阿里云服务的app code"));
         CacheService.setCache(CONTENT, createInfo(CONTENT, "下班打卡提醒", "下班时提醒的内容"));
-        CacheService.setCache(WEI_XIN_URL, createInfo(WEI_XIN_URL, "url", url));
+        CacheService.setCache(WEI_XIN_URL, createInfo(WEI_XIN_URL, url, "企业微信机器人"));
         CacheService.setCache(REMIND_JOB, createInfo(REMIND_JOB, "0 0 18 * * ?", "提醒信息job"));
         CacheService.setCache(WEATHER_JOB, createInfo(WEATHER_JOB, "0 0 9 * * ?", "早上天气job"));
 
@@ -60,10 +60,11 @@ public class JobRunner implements CommandLineRunner {
         }
         runnableMap.forEach((job, runnable) -> {
             if(REMIND_JOB.equals(job)){
-                cronTaskRegistrar.addCronTask(runnable, CacheService.getCache(REMIND_JOB).toString());
+                cronTaskRegistrar.addCronTask(runnable, CacheService.getCache(REMIND_JOB).getValue());
             }else{
-                cronTaskRegistrar.addCronTask(runnable, CacheService.getCache(WEATHER_JOB).toString());
+                cronTaskRegistrar.addCronTask(runnable, CacheService.getCache(WEATHER_JOB).getValue());
             }
+            log.info("{}启动完成",job);
         });
     }
 

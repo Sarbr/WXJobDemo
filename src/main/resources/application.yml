@@ -11,5 +11,5 @@ spring:
     prefix: classpath:templates/
     cache: true
 open-url: http://127.0.0.1:${server.port}
-app-code: 阿里云服务的app code
-wei-xin-url: 企业微信机器人
+app-code: code
+wei-xin-url: url
