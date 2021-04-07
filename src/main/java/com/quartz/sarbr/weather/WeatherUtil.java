@@ -1,16 +1,37 @@
-package com.quartz.jialei.weather;
+package com.quartz.sarbr.weather;
 
 import cn.hutool.http.HttpRequest;
 import cn.hutool.http.HttpResponse;
 import cn.hutool.http.HttpUtil;
+import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
+import com.quartz.sarbr.model.JobInfo;
+import com.quartz.sarbr.service.CacheService;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.List;
 
+import static com.quartz.sarbr.constant.JobConst.*;
+
 @Slf4j
 @SuppressWarnings("Duplicates")
 public class WeatherUtil {
+
+    public static void sendWeatherInfoToWX(String cityCodeAuto) {
+        JSONObject body = new JSONObject();
+        JSONObject content = new JSONObject();
+        JobInfo cityCode = CacheService.getCache(cityCodeAuto);
+        JobInfo appCode = CacheService.getCache(APP_CODE);
+        JobInfo weiXinUrl = CacheService.getCache(WEI_XIN_URL);
+        content.put(CONTENT, getWeather(cityCode.getValue(), appCode.getValue()));
+        body.put(MSGTYPE, MARKDOWN);
+        body.put(MARKDOWN, content);
+        HttpUtil.createPost(weiXinUrl.getValue())
+                .contentType("application/json")
+                .body(body)
+                .timeout(HttpRequest.TIMEOUT_DEFAULT)
+                .execute();
+    }
 
     public static String getWeather(String cityCode, String appCode) {
         StringBuilder sb = new StringBuilder();

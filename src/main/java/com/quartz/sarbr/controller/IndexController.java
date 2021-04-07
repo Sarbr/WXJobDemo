@@ -1,11 +1,11 @@
-package com.quartz.jialei.controller;
+package com.quartz.sarbr.controller;
 
 import cn.hutool.json.JSON;
 import cn.hutool.json.JSONObject;
-import com.quartz.jialei.config.CronTaskRegistrar;
-import com.quartz.jialei.model.JobInfo;
-import com.quartz.jialei.service.CacheService;
-import com.quartz.jialei.service.JobService;
+import com.quartz.sarbr.config.CronTaskRegistrar;
+import com.quartz.sarbr.model.JobInfo;
+import com.quartz.sarbr.service.CacheService;
+import com.quartz.sarbr.service.JobService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,8 +18,8 @@ import javax.annotation.Resource;
 import java.util.List;
 import java.util.Map;
 
-import static com.quartz.jialei.constant.JobConst.REMIND_JOB;
-import static com.quartz.jialei.constant.JobConst.WEATHER_JOB;
+import static com.quartz.sarbr.constant.JobConst.*;
+import static com.quartz.sarbr.weather.WeatherUtil.sendWeatherInfoToWX;
 
 @Controller
 public class IndexController {
@@ -47,7 +47,7 @@ public class IndexController {
     /**
      * https://www.cnblogs.com/sxw123/p/13847793.html
      */
-    @PostMapping({"/saveJob"})
+    @PostMapping("/saveJob")
     @ResponseBody
     public JSON list(@RequestBody List<JobInfo> list){
         list.forEach(jobInfo -> {
@@ -62,4 +62,11 @@ public class IndexController {
         json.putByPath("msg","success");
         return json;
     }
+
+    @GetMapping("/search")
+    public String search(){
+        sendWeatherInfoToWX(CITY_CODE_AUTO);
+        return "index";
+    }
+
 }

@@ -1,4 +1,4 @@
-package com.quartz.jialei.config;
+package com.quartz.sarbr.config;
 
 import org.springframework.boot.autoconfigure.web.ResourceProperties;
 import org.springframework.boot.autoconfigure.web.servlet.WebMvcRegistrations;

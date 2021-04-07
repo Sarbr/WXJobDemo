@@ -1,10 +1,10 @@
-package com.quartz.jialei;
+package com.quartz.sarbr;
 
 import cn.hutool.http.HttpRequest;
 import cn.hutool.http.HttpResponse;
 import cn.hutool.http.HttpUtil;
 import cn.hutool.json.JSONUtil;
-import com.quartz.jialei.weather.Weather;
+import com.quartz.sarbr.weather.Weather;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;

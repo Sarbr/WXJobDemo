@@ -1,6 +1,6 @@
-package com.quartz.jialei.service;
+package com.quartz.sarbr.service;
 
-import com.quartz.jialei.model.JobInfo;
+import com.quartz.sarbr.model.JobInfo;
 
 import java.util.Map;
 import java.util.Set;

@@ -10,6 +10,5 @@ spring:
     encoding: UTF-8
     prefix: classpath:templates/
     cache: true
-open-url: http://127.0.0.1:${server.port}
 app-code: code
 wei-xin-url: url

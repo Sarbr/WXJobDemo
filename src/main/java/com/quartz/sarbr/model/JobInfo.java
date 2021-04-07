@@ -1,4 +1,4 @@
-package com.quartz.jialei.model;
+package com.quartz.sarbr.model;
 
 import lombok.Getter;
 import lombok.Setter;

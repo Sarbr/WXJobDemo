@@ -1,4 +1,4 @@
-package com.quartz.jialei.constant;
+package com.quartz.sarbr.constant;
 
 /**
  * @author : sarbr
@@ -17,5 +17,6 @@ public class JobConst {
     public static final String WEI_XIN_URL = "weiXinUrl";
     public static final String REMIND_JOB = "remindJob";
     public static final String WEATHER_JOB = "weatherJob";
+    public static final String CITY_CODE_AUTO = "cityCodeAuto";
 
 }

@@ -46,27 +46,32 @@
             </thead>
             <tbody>
                 <tr th:each="item,itemStat:${list}">
-                    <th th:text="${item.key}" class="text-center" style="padding-top: 10px" name="key"></th>
-                    <th name="value">
+                    <th th:text="${item.key}" class="text-center" style="padding-top: 10px" th:name="key"></th>
+                    <th th:name="value">
                         <label class="labelTd">
                             <input name="value" th:id="${'value_' + itemStat.index}" th:value="${item.value}"
                                    class="form-control">
                         </label>
                     </th>
-                    <th th:text="${item.desc}" class="text-center" style="padding-top: 10px" name="desc"></th>
+                    <th th:text="${item.desc}" class="text-center" style="padding-top: 10px" th:name="desc"></th>
                 </tr>
             </tbody>
         </table>
     </div>
     <div class="panel-footer">
-        <div class="pl-20 pr-20 pt-10 pb-10" style="text-align:center">
-            <button type="button" class="btn btn-success save">启动job</button>
+        <div style="text-align:center;padding-top: 5px;">
+            <button type="button" class="btn btn-danger btn1">查询天气</button>
+            <button type="button" class="btn btn-success btn2">保存配置并启动job</button>
         </div>
     </div>
 </div>
 <script type="application/javascript">
     $(function () {
-        $('.save').on('click', function () {
+        $('.btn1').on('click', function () {
+            $.get("/search",function () {
+            });
+        });
+        $('.btn2').on('click', function () {
             const data = [];
             $('tbody tr').each(function (i) {
                 const param = {};

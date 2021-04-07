@@ -1,4 +1,4 @@
-package com.quartz.jialei.config;
+package com.quartz.sarbr.config;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;

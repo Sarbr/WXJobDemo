@@ -1,4 +1,4 @@
-package com.quartz.jialei.config;
+package com.quartz.sarbr.config;
 
 import java.util.concurrent.ScheduledFuture;
 

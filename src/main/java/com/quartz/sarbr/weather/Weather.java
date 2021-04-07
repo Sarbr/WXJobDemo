@@ -1,4 +1,4 @@
-package com.quartz.jialei.weather;
+package com.quartz.sarbr.weather;
 
 import lombok.Data;
 import lombok.Getter;
